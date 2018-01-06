@@ -1,33 +1,36 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
 
 module.exports = {
-    entry: './src/index.jsx',
-    output: {
-        path: path.resolve('dist'),
-        filename: 'bundle.js'
+  // the entry file for the bundle
+  entry: path.join(__dirname, '/client/src/app.jsx'),
+
+  // the bundle file we will get in the result
+  output: {
+    path: path.join(__dirname, '/client/dist/js'),
+    filename: 'app.js',
+  },
+
+  module: {
+
+    // apply loaders to files that meet given conditions
+    loaders: [{
+      test: /\.jsx?$/,
+      include: path.join(__dirname, '/client/src'),
+    // use: [
+    //     'babel-loader'
+    // ],      
+      loader: 'babel-loader',
+      query: {
+        presets: ["react", "env"]
+      }
     },
-    resolve: {
-        extensions: ['.js', '.jsx']
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2015', 'stage-3']
-                }
-            }
-        ]
-    },
-    plugins: [new HtmlWebpackPlugin({
-        template: './src/index.html',
-        filename: 'index.html',
-        inject: 'body'
-    })],
-    devServer: {
-        historyApiFallback: true
-    }
-}
+    {
+      test: /\.(gif|svg|jpg|png)$/,
+      loader: "file-loader",
+    }],
+  },
+
+  // start Webpack in a watch mode, so Webpack will rebuild the bundle on changes
+  watch: true
+};

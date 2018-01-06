@@ -1,33 +1,58 @@
 {
-  "name": "react-redux-registration-login-example",
+  "name": "mixit",
   "version": "1.0.0",
+  "description": "MERN Stack app for playing and mixing music",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon --use_strict index.js",
+    "bundle": "webpack"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cornflourblue/react-redux-registration-login-example.git"
+    "url": "git+https://github.com/Duckiebee/MixIt.git"
   },
+  "keywords": [
+    "MERN",
+    "music",
+    "mixer"
+  ],
+  "author": "Brooke_Brent_Sara",
   "license": "MIT",
-  "scripts": {
-    "start": "webpack-dev-server --open"
+  "bugs": {
+    "url": "https://github.com/Duckiebee/MixIt/issues"
   },
+  "homepage": "https://github.com/Duckiebee/MixIt#readme",
   "dependencies": {
-    "history": "^4.6.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-redux": "^5.0.5",
-    "react-router-dom": "^4.1.2",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "events": "^1.1.1",
+    "express": "^4.16.2",
+    "google-fonts": "^1.0.0",
+    "jsonwebtoken": "^8.1.0",
+    "material-ui": "^0.20.0",
+    "mongoose": "^5.0.0-rc2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-tap-event-plugin": "^3.0.2",
+    "validator": "^9.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.21.0",
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "html-webpack-plugin": "^2.26.0",
-    "path": "^0.12.7",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.8",
+    "file-loader": "^1.1.6",
+    "nodemon": "^1.14.7",
+    "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0"
   }
 }
