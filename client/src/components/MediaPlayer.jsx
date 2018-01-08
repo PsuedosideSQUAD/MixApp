@@ -1,13 +1,14 @@
 import React from "react";
-import Controls from "./Controls.jsx";
-import ControlsTwo from "./ControlsTwo.jsx";
-import TrackList from "./TrackList.jsx";
-import TrackListTwo from "./TrackListTwo.jsx";
+import '../App.css';
+import Controls from "./Controls";
+import ControlsTwo from "./ControlsTwo";
+import TrackList from "./TrackList";
+import TrackListTwo from "./TrackListTwo";
 
 // Data
 import data from "../tracks.json";
 
-// MediaPlayer
+// App
 class MediaPlayer extends React.Component {
   constructor(props) {
     super(props);
@@ -133,10 +134,14 @@ class MediaPlayer extends React.Component {
   render() {
     return (
       <div>
+      <div className="panel panel-primary">
+        <div className="panel-heading"><img src={'mixitlog.png'} alt="logo" className="img-responsive"/>
+        </div>
+      </div>
       <div className="container">
         <div className="row">
           <div className="col-md-6" id="playerOne" align="center">
-            <div className="App">
+            <div className="MediaPlayer">
               <div
                 className="Artwork"
                 style={{ backgroundImage: "url(" + data.artwork + ")" }}
@@ -152,7 +157,7 @@ class MediaPlayer extends React.Component {
             </div>
           </div>
           <div className="col-md-6" id="playerTwo" align="center">
-            <div className="App">
+            <div className="MediaPlayer">
               <div
                 className="Artwork"
                 style={{ backgroundImage: "url(" + data.artwork + ")" }}

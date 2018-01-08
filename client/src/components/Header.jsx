@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth';
 import {Redirect} from 'react-router-dom';
-import mainLogo from '../../../public/mixitlog.png';
+import { BrowserRouter } from 'react-router-dom';
+
 
 class Header extends React.Component {
 
@@ -18,7 +19,7 @@ class Header extends React.Component {
       redirect: false
     };
 
-  }    
+  }
 
   onLogOutClicked()
   {
@@ -27,10 +28,11 @@ class Header extends React.Component {
 
   render() {
     return (
+    <BrowserRouter>
     <div className="top-bar">
         <div className="top-bar-left">
-            <img src={mainLogo} alt="logo" className="img-responsive"/>
-            <Link to="/"></Link>   
+            <img alt="" className="mainLogo"/>
+            <Link to="/"></Link>
         </div>
 
         <div>
@@ -64,6 +66,7 @@ class Header extends React.Component {
         )
         }
     </div>
+    </BrowserRouter>
     );
   }
 }

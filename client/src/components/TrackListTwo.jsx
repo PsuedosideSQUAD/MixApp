@@ -1,4 +1,5 @@
 import React from "react";
+import "./TrackList.css";
 import data from "../tracks.json";
 
 // TrackList

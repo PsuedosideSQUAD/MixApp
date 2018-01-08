@@ -1,7 +1,12 @@
 @import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700";
-@import "";
 
-html, body, div, span, applet, object, iframe,
+/*@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700";
+*/
+/*
+NEED TO ADD A CSS LOADER TO 
+*/
+
+html, body, div, span, MediaPlayerlet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -70,6 +75,58 @@ body {
 }
 */
 
+.text-center {
+  text-align: center;
+}
+
+.top-bar {
+  padding: 10px 15px;
+  margin-bottom: 50px;
+}
+.top-bar::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.top-bar-left {
+  float: left;
+  font-size: 1.5em;
+}
+
+.top-bar-right {
+  float: right;
+}
+
+.top-bar a,
+.nav a {
+  margin: 0 8px;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+
+.card-heading {
+  padding: 16px;
+}
+
+.field-line, .button-line {
+  padding: 16px;
+}
+
+.error-message {
+  padding: 0 16px;
+  color: tomato;
+}
+
+.success-message {
+  padding: 0 16px;
+  color: green;
+}
+
 .panel {
   border: 0;
   margin-bottom: 25px;
@@ -91,6 +148,12 @@ body {
   margin-left:-20px;
 }
 
+.mainLogo {
+  content: url("/img/mixitlog.png");
+  height: 178px;
+  margin-left:-20px;
+}
+
 #playerOne {
   
 }
@@ -99,23 +162,24 @@ body {
 
 }
 
-.App {
+.MediaPlayer {
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   width: 280px;
   height: 460px;
 }
-.App .Artwork {
+.MediaPlayer .Artwork {
   width: 280px;
   height: 180px;
   background-size: cover;
   position: relative;
+  background-image: url("https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjmpKTj-qDYAhUiTd8KHeeMAL8QjRwIBw&url=http%3A%2F%2Fwww.pak101.com%2Fc%2Ffunnypictures%2Fview%2F6166%2FAnimals%2FFunny_Monkey_Hairstyles&psig=AOvVaw0kS7dRo1Q7n28PdHX8jMLD&ust=1514146841132338");
 }
-.App .Artwork:hover .Controls {
+.MediaPlayer .Artwork:hover .Controls {
   background: rgba(56, 130, 205, 0.8);
 }
-.App .Artwork .Controls {
+.MediaPlayer .Artwork .Controls {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -135,22 +199,22 @@ body {
   -webkit-transition: background .125s ease;
   transition: background .125s ease;
 }
-.App .Artwork .Controls i:hover{
+.MediaPlayer .Artwork .Controls i:hover{
   cursor:pointer;
 }
-.App .Artwork .Controls .fa-play,
-.App .Artwork .Controls .fa-pause {
+.MediaPlayer .Artwork .Controls .fa-play,
+.MediaPlayer .Artwork .Controls .fa-pause {
   -webkit-transform: scale(2);
           transform: scale(2);
 }
-.App .TrackList {
+.MediaPlayer .TrackList {
   width: 280px;
   height: 250px;
   background: #34587c;
   overflow-y: auto;
   position:relative;
 }
-.App .TrackList li {
+.MediaPlayer .TrackList li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,35 +225,41 @@ body {
   text-transform: uppercase;
   font-weight: 300;
 }
-.App .TrackList li:hover, .App .TrackList li.selected {
+.MediaPlayer .TrackList li:hover, .MediaPlayer .TrackList li.selected {
   background: #27405a;
   cursor: pointer;
   color: #3882cd;
 }
-.App .TrackList li:hover .duration {
+.MediaPlayer .TrackList li:hover .duration {
   opacity: 1;
 }
-.App .TrackList li .title {
+.MediaPlayer .TrackList li .title {
   margin-left: 10px;
   font-weight: 500;
   letter-spacing: .12em;
 }
-.App .TrackList li .artist {
+.MediaPlayer .TrackList li .artist {
   margin-left: 10px;
   font-weight: 500;
   letter-spacing: .12em;
   color:yellow;
 }
-.App .TrackList li .duration {
+.MediaPlayer .TrackList li .duration {
   margin-left: auto;
   opacity: .25;
 }
-.App .MusicCredit, .App .MusicCredit a{
+.MediaPlayer .MusicCredit, .MediaPlayer .MusicCredit a{
   color:white;
   padding:5px;
   text-align:center;
   
 }
-.App .MusicCredit a{
+.MediaPlayer .MusicCredit a{
   color: #D90368;
+}
+
+.MediaPlayer .TrackListTwo li.selected {
+  background: #fff;
+  cursor: pointer;
+  color: #3882cd;
 }

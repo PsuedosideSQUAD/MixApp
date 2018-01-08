@@ -1,4 +1,6 @@
 import React from "react";
+import "./Controls.css";
+import "../App.css";
 
 // Controls
 class ControlsTwo extends React.Component {

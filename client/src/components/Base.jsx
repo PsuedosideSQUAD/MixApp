@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
-
+import { BrowserRouter } from 'react-router-dom';
 
 const Base = ({ children }) => (
+  <BrowserRouter>
   <div>
     <div className="top-bar">
       <div className="top-bar-left">
@@ -27,6 +28,7 @@ const Base = ({ children }) => (
     {children}
 
   </div>
+  </BrowserRouter>
 );
 
 Base.propTypes = {

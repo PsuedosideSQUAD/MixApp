@@ -47,10 +47,7 @@ class DashboardPage extends React.Component {
   render() {
 
     return (
-      <div>
-        <Dashboard secretData={this.state.secretData} />
         <MediaPlayer />
-      </div>
       );
   }
 
