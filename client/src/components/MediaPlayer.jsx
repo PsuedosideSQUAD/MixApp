@@ -15,8 +15,7 @@ class MediaPlayer extends React.Component {
     this.state = {
       playing: false,
       playingTwo: false,
-      currentTrackIndex: 0
-
+      currentTrackIndex: 1
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClickTwo = this.handleClickTwo.bind(this);
