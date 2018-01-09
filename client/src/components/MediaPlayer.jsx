@@ -133,10 +133,6 @@ class MediaPlayer extends React.Component {
   render() {
     return (
       <div>
-      <div className="panel panel-primary">
-        <div className="panel-heading"><img src={'mixitlog.png'} alt="logo" className="img-responsive"/>
-        </div>
-      </div>
       <div className="container">
         <div className="row">
           <div className="col-md-6" id="playerOne" align="center">

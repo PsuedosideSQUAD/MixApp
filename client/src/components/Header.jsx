@@ -29,7 +29,12 @@ class Header extends React.Component {
   render() {
     return (
     <BrowserRouter>
+    
     <div className="top-bar">
+    <div className="panel panel-primary">
+        <div className="panel-heading"><img src={'mixitlog.png'} alt="logo" className="img-responsive"/>
+        </div>
+    </div>
         <div className="top-bar-left">
             <img alt="" className="mainLogo"/>
             <Link to="/"></Link>
