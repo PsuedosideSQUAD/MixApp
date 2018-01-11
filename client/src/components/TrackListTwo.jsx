@@ -1,6 +1,7 @@
 import React from "react";
 import "./TrackList.css";
 import data from "../tracks.json";
+import "../App.css";
 
 // TrackList
 class TrackListTwo extends React.Component {

@@ -1,16 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home.jsx'
 import LoginPage from '../containers/LoginPage.jsx';
 import SignUpPage from '../containers/SignUpPage.jsx';
 
 class Main extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-  }
   
   render() {
     return (
@@ -21,8 +15,8 @@ class Main extends React.Component {
               <Route path='/signup' component={SignUpPage}/>
             </Switch>
           </main>
-        )
-  }  
+    )
+  }
 }
 
 export default Main

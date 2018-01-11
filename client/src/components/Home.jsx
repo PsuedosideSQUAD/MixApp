@@ -46,7 +46,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        {Auth.isUserAuthenticated() == false ? (          
+        {Auth.isUserAuthenticated() === false ? (          
       <Card className="container">
           <CardTitle title={this.props.cardtitleP} subtitle={this.props.cardsubtitleP} />          
       </Card>):

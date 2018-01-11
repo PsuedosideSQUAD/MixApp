@@ -12,7 +12,7 @@ class TrackList extends React.Component {
   }
 
   componentDidMount() {
-    //fetch data for a track here (i.e. from Spotify or Soundcloud)s
+    //fetch data for a track here (i.e. from Spotify or Soundcloud)
     this.setState({ tracks: data.tracks });
   }
   

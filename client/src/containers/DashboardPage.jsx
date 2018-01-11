@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../modules/Auth';
-import Dashboard from '../components/Dashboard.jsx';
+//import Dashboard from '../components/Dashboard.jsx';
 import MediaPlayer from '../components/MediaPlayer.jsx';
 
 class DashboardPage extends React.Component {
@@ -47,8 +47,27 @@ class DashboardPage extends React.Component {
   render() {
 
     return (
+      <div>
+        <div className="col-md-6" align="center">
         <MediaPlayer />
-      );
+        </div>
+        <div className="col-md-6" align="center">
+        <MediaPlayer />
+        </div>
+        <div className="col-md-6" align="center">
+        <MediaPlayer />
+        </div>
+        <div className="col-md-6" align="center">
+        <MediaPlayer />
+        </div>
+        <div className="col-md-6" align="center">
+        <MediaPlayer />
+        </div>
+        <div className="col-md-6" align="center">
+        <MediaPlayer />
+        </div>
+      </div>
+    );
   }
 
 }

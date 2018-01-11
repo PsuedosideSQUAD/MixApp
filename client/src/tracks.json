@@ -6,9 +6,7 @@
     {"id":3,"title":"Monster","artist":"Mumford & Sons","duration":"3:57"},
     {"id":4,"title":"The Trapeze Swinger","artist":"Gregory Alan Isakov","duration":"7:59"},
     {"id":5,"title":"The Other Side","artist":"Vacay","duration":"3:44"},
-    {"id":6,"title":"Real Peach","artist":"Henry Jamison","duration":"3:53"}
-  ],
-   "tracksTwo":[
+    {"id":6,"title":"Real Peach","artist":"Henry Jamison","duration":"3:53"},
     {"id":7,"title":"Chihiro","artist":"Yoste","duration":"3:36"},
     {"id":8,"title":"Play It Right","artist":"Sylvan Esso","duration":"3:18"},
     {"id":9,"title":"Try Piano Cover","artist":"Kents7ield","duration":"3:49"},

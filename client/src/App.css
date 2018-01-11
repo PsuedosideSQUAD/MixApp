@@ -156,12 +156,15 @@ body {
 
 }
 
+.SongDropdown {
+  
+}
+
 .MediaPlayer {
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   width: 280px;
-  height: 460px;
 }
 .MediaPlayer .Artwork {
   width: 280px;
