@@ -2,6 +2,7 @@ import React from 'react';
 import Auth from '../modules/Auth';
 //import Dashboard from '../components/Dashboard.jsx';
 import MediaPlayer from '../components/MediaPlayer.jsx';
+import Dropdown from 'react-dropdown';
 
 class DashboardPage extends React.Component {
 
@@ -12,8 +13,16 @@ class DashboardPage extends React.Component {
     super(props);
 
     this.state = {
-      secretData: ''
+      secretData: '',
+      numberOfMediaPlayers: 20
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(numberOfPlayers) {
+    this.setState({
+      numberOfMediaPlayers: numberOfPlayers
+    });
   }
 
   /**
@@ -48,28 +57,14 @@ class DashboardPage extends React.Component {
 
     return (
       <div>
-        <div className="col-md-6" align="center">
-        <MediaPlayer />
-        </div>
-        <div className="col-md-6" align="center">
-        <MediaPlayer />
-        </div>
-        <div className="col-md-6" align="center">
-        <MediaPlayer />
-        </div>
-        <div className="col-md-6" align="center">
-        <MediaPlayer />
-        </div>
-        <div className="col-md-6" align="center">
-        <MediaPlayer />
-        </div>
-        <div className="col-md-6" align="center">
-        <MediaPlayer />
-        </div>
+        {[...Array(this.state.numberOfMediaPlayers)].map((e, i) =>
+             <div className="col-md-6" align="center" key={i}>
+              <MediaPlayer />
+             </div>
+          )}
       </div>
     );
   }
-
 }
 
 export default DashboardPage;

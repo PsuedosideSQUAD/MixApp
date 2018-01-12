@@ -1,17 +1,26 @@
 import React from "react";
 import '../App.css';
 import Controls from "./Controls";
-import TrackList from "./TrackList";
 import Dropdown from 'react-dropdown';
+import VolumeControls from "./VolumeControls";
+import TempoControls from "./TempoControls";
 
-// Data
-import data from "../tracks.json";
-const options = data.tracks.map(getTrackOption);
-const tracks = data.tracks;
+// Track Info
+import BeatTracks from "../TrackInfo/beatTracks.json";
+import Top40Tracks from "../TrackInfo/top40Tracks.json"
+import ClassicalTracks from "../TrackInfo/classicalTracks.json"
+import TechnoTracks from "../TrackInfo/technoTracks.json"
+import RockTracks from "../TrackInfo/rockTracks.json"
+
+const options = BeatTracks.tracks.map(getTrackOption);
+const tracks = BeatTracks.tracks;
 console.log(options);
 
 function getTrackOption(track, index) {
     return { value: track.id, label: track.title + " by " + track.artist };
+}
+function getSelectObject(object, index) {
+  return { value: object, label: object};
 }
 
 // App
@@ -21,15 +30,46 @@ class MediaPlayer extends React.Component {
     this.state = {
       playing: false,
       options: options,
+      typeOptions: ["Song", "Beat"].map(getSelectObject),
       selected: options[0],
-      currentTrackIndex: tracks[0].id
+      currentTrackIndex: tracks[0].id,
+      typeSelected: null,
+      genreSelected: null,
+      genreOptions: ["Top40", "Classical", "Techno", "Rock"].map(getSelectObject)
     };
     this._onSelect = this._onSelect.bind(this)
+    this.handleTypeSelected = this.handleTypeSelected.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.playAudio = this.playAudio.bind(this);
     this.pauseAudio = this.pauseAudio.bind(this);
     this.selectTrackNumber = this.selectTrackNumber.bind(this);
     this.changeTempo = this.changeTempo.bind(this);
+    this.resetAudio = this.resetAudio.bind(this);
+    this.handleGenreSelected = this.handleGenreSelected.bind(this);
+  }
+
+  handleGenreSelected(option) {
+            console.log(option)
+
+    this.setState({
+      genreSelected: option.value,
+      options: option.value === "Top40" ?
+        Top40Tracks.tracks.map(getTrackOption) :
+        option.value === "Rock" ?
+        RockTracks.tracks.map(getTrackOption) :
+        option.value === "Classical" ?
+        ClassicalTracks.tracks.map(getTrackOption) :
+        TechnoTracks.tracks.map(getTrackOption)
+    });
+  }
+
+  handleTypeSelected(option) {
+    this.setState({
+      typeSelected: option.value,
+      options: option.value === "Beat" ?
+        BeatTracks.tracks.map(getTrackOption) :
+        this.state.options
+    });
   }
 
   _onSelect (option) {
@@ -40,9 +80,14 @@ class MediaPlayer extends React.Component {
     }, this.playAudio);
   }
 
-  changeTempo(){
-
+  changeTempo(option){
+    this.audioElement.playbackRate();
   }
+
+  resetAudio(){
+    this.audioElement.reset();
+  }
+
   playAudio(){
     this.audioElement.load();
     this.audioElement.play();
@@ -100,6 +145,25 @@ class MediaPlayer extends React.Component {
             };
         },this.playAudio);
         break;
+      case "slower":
+        this.audioElement.playbackRate === 0 ?
+          this.audioElement.playbackRate = .10
+          : this.audioElement.playbackRate -= .10; //Prevent slowdown to get to 0
+        break;
+      case "faster":
+        this.audioElement.playbackRate += .10;
+        break;
+      case "normalTempo":
+        this.audioElement.playbackRate = 1;
+        break;
+      case "down":
+        this.audioElement.volume === 0 ?
+        this.audioElement.volume = .10
+        : this.audioElement.volume -= .10;
+        break;
+      case "up":
+        this.audioElement.playbackRate += .10;
+        break;
       default:
         break;
     }
@@ -109,6 +173,11 @@ class MediaPlayer extends React.Component {
 
     const options = this.state.options
     const defaultOption = this.state.selected
+    const showGenreDropdown = this.state.typeSelected === "Song"
+    const showSongDropdown = this.state.genreSelected !== null
+    const showSelectTypeDropdown = this.state.typeSelected === null
+    const source = "/songs/"+this.state.genreSelected ? this.state.genreSelected : "Top40" +"/"+this.state.currentTrackIndex+".mp3"
+    console.log(this.state.typeSelected)
 
     return (
       <div>
@@ -120,7 +189,16 @@ class MediaPlayer extends React.Component {
                   <Controls onClick={this.handleClick} playing={this.state.playing} />
                   <audio ref={(audio)=>{this.audioElement = audio}} src={"/songs/"+this.state.currentTrackIndex+".mp3"}/>
                 </div>
-                <Dropdown className="SongDropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select A Song" />
+                <TempoControls onClick={this.handleClick}/>
+                <VolumeControls onClick={this.handleClick}/>
+                {showSelectTypeDropdown ?
+                    <Dropdown className="SelectTypeDropdown" options = {this.state.typeOptions} onChange={this.handleTypeSelected} value={"Song"} placeholder="Select A Song Or A Beat"/> :
+                    showGenreDropdown ?
+                    <Dropdown className="GenreDropdown" options = {this.state.genreOptions} onChange={this.handleGenreSelected} value={"Top40"} placeholder="Select A Genre"/> :
+                    showSongDropdown ?
+                    <Dropdown className="SongDropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select A Song" /> :
+                    <Dropdown className="BeatsDropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select A Song" />
+                }
               </div>
             </div>
           </div>
