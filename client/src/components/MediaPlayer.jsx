@@ -173,6 +173,7 @@ class MediaPlayer extends React.Component {
 
     const options = this.state.options
     const defaultOption = this.state.selected
+    const showBeatsDropdown = this.state.typeSelected === "Beat"
     const showGenreDropdown = this.state.typeSelected === "Song"
     const showSongDropdown = this.state.genreSelected !== null
     const showSelectTypeDropdown = this.state.typeSelected === null
@@ -192,12 +193,12 @@ class MediaPlayer extends React.Component {
                 <TempoControls onClick={this.handleClick}/>
                 <VolumeControls onClick={this.handleClick}/>
                 {showSelectTypeDropdown ?
-                    <Dropdown className="SelectTypeDropdown" options = {this.state.typeOptions} onChange={this.handleTypeSelected} value={"Song"} placeholder="Select A Song Or A Beat"/> :
-                    showGenreDropdown ?
-                    <Dropdown className="GenreDropdown" options = {this.state.genreOptions} onChange={this.handleGenreSelected} value={"Top40"} placeholder="Select A Genre"/> :
+                    <Dropdown className="SelectTypeDropdown" options = {this.state.typeOptions} onChange={this.handleTypeSelected} placeholder="Select A Song Or A Beat"/> :
+                    showBeatsDropdown ?
+                    <Dropdown className="BeatsDropdown" options={options} onChange={this._onSelect} placeholder="Select A Beat" /> :
                     showSongDropdown ?
-                    <Dropdown className="SongDropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select A Song" /> :
-                    <Dropdown className="BeatsDropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select A Song" />
+                    <Dropdown className="SongDropdown" options={options} onChange={this._onSelect} placeholder={"Select A " + this.state.genreSelected + " Song"} /> :
+                    <Dropdown className="GenreDropdown" options = {this.state.genreOptions} onChange={this.handleGenreSelected} placeholder="Select A Genre"/>
                 }
               </div>
             </div>
