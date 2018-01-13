@@ -8,8 +8,8 @@ import TempoControls from "./TempoControls";
 // Track Info
 import BeatTracks from "../TrackInfo/beatTracks.json";
 import Top40Tracks from "../TrackInfo/top40Tracks.json"
-import ClassicalTracks from "../TrackInfo/classicalTracks.json"
-import TechnoTracks from "../TrackInfo/technoTracks.json"
+import AcousticTracks from "../TrackInfo/acousticTracks.json"
+import InstrumentalTracks from "../TrackInfo/instrumentalTracks.json"
 import RockTracks from "../TrackInfo/rockTracks.json"
 
 const options = BeatTracks.tracks.map(getTrackOption);
@@ -35,7 +35,7 @@ class MediaPlayer extends React.Component {
       currentTrackIndex: tracks[0].id,
       typeSelected: null,
       genreSelected: null,
-      genreOptions: ["Top40", "Classical", "Techno", "Rock"].map(getSelectObject)
+      genreOptions: ["Top40", "Acoustic", "Instrumental", "Rock"].map(getSelectObject)
     };
     this._onSelect = this._onSelect.bind(this)
     this.handleTypeSelected = this.handleTypeSelected.bind(this);
@@ -57,9 +57,9 @@ class MediaPlayer extends React.Component {
         Top40Tracks.tracks.map(getTrackOption) :
         option.value === "Rock" ?
         RockTracks.tracks.map(getTrackOption) :
-        option.value === "Classical" ?
-        ClassicalTracks.tracks.map(getTrackOption) :
-        TechnoTracks.tracks.map(getTrackOption)
+        option.value === "Acoustic" ?
+        AcousticTracks.tracks.map(getTrackOption) :
+        InstrumentalTracks.tracks.map(getTrackOption)
     });
   }
 
@@ -177,21 +177,20 @@ class MediaPlayer extends React.Component {
     const showGenreDropdown = this.state.typeSelected === "Song"
     const showSongDropdown = this.state.genreSelected !== null
     const showSelectTypeDropdown = this.state.typeSelected === null
-    const source = "/songs/"+this.state.genreSelected ? this.state.genreSelected : "Top40" +"/"+this.state.currentTrackIndex+".mp3"
-    console.log(this.state.typeSelected)
+    const source = "/songs/" + this.state.genreSelected + "/" +this.state.currentTrackIndex + ".mp3"
+    const defaultSource = "/songs/Beats/" + this.state.currentTrackIndex + ".mp3"
 
     return (
       <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6" id="playerOne" align="center">
+            <div id="playerOne" align="center">
               <div className="MediaPlayer">
                 <div className="Artwork">
                   <Controls onClick={this.handleClick} playing={this.state.playing} />
-                  <audio ref={(audio)=>{this.audioElement = audio}} src={"/songs/"+this.state.currentTrackIndex+".mp3"}/>
+                  <audio ref={(audio)=>{this.audioElement = audio}} src={this.state.genreSelected ? source : defaultSource}/>
+
                 </div>
-                <TempoControls onClick={this.handleClick}/>
                 <VolumeControls onClick={this.handleClick}/>
+                <TempoControls onClick={this.handleClick}/>
                 {showSelectTypeDropdown ?
                     <Dropdown className="SelectTypeDropdown" options = {this.state.typeOptions} onChange={this.handleTypeSelected} placeholder="Select A Song Or A Beat"/> :
                     showBeatsDropdown ?
@@ -202,8 +201,6 @@ class MediaPlayer extends React.Component {
                 }
               </div>
             </div>
-          </div>
-        </div>
       </div>
     );
   }

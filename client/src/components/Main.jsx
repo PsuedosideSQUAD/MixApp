@@ -14,7 +14,12 @@ class Main extends React.Component {
               <Route path='/login' component={LoginPage}/>
               <Route path='/signup' component={SignUpPage}/>
             </Switch>
+            <div id="footer">
+              <i className="fa fa-cogs"><span id="footerText">&nbsp;&nbsp;Created 2017 by PsuedosideSQUAD</span></i>
+            </div>
           </main>
+
+
     )
   }
 }

@@ -7,18 +7,18 @@ class VolumeControls extends React.Component {
   render() {
     return (
       <div className="VolumeControls">
-        <h3>Volume</h3>
         <button
           id="down"
-          className="fa fa-fw fa-slower"
+          className="btn down"
           onClick={this.props.onClick}>
-          -
+          <i class="fa fa-arrow-down"></i>
         </button>
+        <span className="inset-text-effect">Volume&nbsp;&nbsp;</span>
         <button
           id="up"
-          className="fa fa-fw fa-faster"
+          className="btn up"
           onClick={this.props.onClick}>
-          +
+          <i class="fa fa-arrow-up"></i>
         </button>        
       </div>
     );

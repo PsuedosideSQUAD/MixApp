@@ -27,16 +27,11 @@ class Header extends React.Component {
     return (
     <BrowserRouter>    
     <div className="top-bar">
-    <div className="panel panel-primary">
-        <div className="panel-heading"><img src={'mixitlog.png'} alt="logo" className="img-responsive"/>
-        </div>
+    <div id="header">
+        <img src={'mixitlog.png'} alt="logo" className="img-responsive"/> 
     </div>
-        <div className="top-bar-left">
-            <img alt="" className="mainLogo"/>
-            <Link to="/"></Link>
-        </div>
 
-        <div>
+        <div id="musicBG">
         {Auth.isUserAuthenticated() === true ? (
             <div className="top-bar-left">
                   {this.state.userWelcomeText} {JSON.parse(localStorage.getItem('usrname')).name}!
@@ -54,7 +49,7 @@ class Header extends React.Component {
         </div>
         ) : (
         <div className="top-bar-right">
-                 <Link to="/login" onClick={this.onLogOutClicked}>Log out</Link> 
+                 <Link to="/login" onClick={this.onLogOutClicked}><i className="fa fa-user">&nbsp;&nbsp;<span id="logoutText">Log out</span></i></Link> 
         </div>
         )}
     </div>

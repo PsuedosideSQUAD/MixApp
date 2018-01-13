@@ -1,18 +1,15 @@
 {
   "artwork":"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjmpKTj-qDYAhUiTd8KHeeMAL8QjRwIBw&url=http%3A%2F%2Fwww.pak101.com%2Fc%2Ffunnypictures%2Fview%2F6166%2FAnimals%2FFunny_Monkey_Hairstyles&psig=AOvVaw0kS7dRo1Q7n28PdHX8jMLD&ust=1514146841132338",
   "tracks":[
-    {"id":1,"title":"Coffee","artist":"Sylvan Esso","duration":"4:41"},
-    {"id":2,"title":"Lindisfarne","artist":"James Blake","duration":"4:54"},
-    {"id":3,"title":"Monster","artist":"Mumford & Sons","duration":"3:57"},
-    {"id":4,"title":"The Trapeze Swinger","artist":"Gregory Alan Isakov","duration":"7:59"},
-    {"id":5,"title":"The Other Side","artist":"Vacay","duration":"3:44"},
-    {"id":6,"title":"Real Peach","artist":"Henry Jamison","duration":"3:53"},
-    {"id":7,"title":"Chihiro","artist":"Yoste","duration":"3:36"},
-    {"id":8,"title":"Play It Right","artist":"Sylvan Esso","duration":"3:18"},
-    {"id":9,"title":"Try Piano Cover","artist":"Kents7ield","duration":"3:49"},
-    {"id":10,"title":"Circle","artist":"Bon Iver","duration":"5:09"},
-    {"id":11,"title":"Last Cigarette","artist":"Sense","duration":"3:32"},
-    {"id":12,"title":"Naruto Mix","artist":"Naruto","duration":"54:16"},
-    {"id":13,"title":"Magic","artist":"Chill Music","duration":"44:41"}
+    {"id":1,"title":"Lindisfarne","artist":"James Blake","duration":"4:54"},
+    {"id":2,"title":"Try","artist":"Piano Cover","duration":"3:57"},
+    {"id":3,"title":"Hello","artist":"Adele Cover","duration":"7:59"},
+    {"id":4,"title":"All of Me","artist":"John Legend","duration":"3:44"},
+    {"id":5,"title":"Praying","artist":"Kesha","duration":"3:53"},
+    {"id":6,"title":"Let Her Go","artist":"Passenger","duration":"3:36"},
+    {"id":7,"title":"Cheap Thrills","artist":"Sia","duration":"3:18"},
+    {"id":8,"title":"Unsteady","artist":"X Ambassadors","duration":"3:49"},
+    {"id":9,"title":"Don't Wanna Live Forever","artist":"Zayn","duration":"5:09"},
+    {"id":10,"title":"Last Cigarette","artist":"Sense","duration":"3:32"}
   ]
 }

@@ -14,7 +14,7 @@ class DashboardPage extends React.Component {
 
     this.state = {
       secretData: '',
-      numberOfMediaPlayers: 20
+      numberOfMediaPlayers: 8
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -57,11 +57,15 @@ class DashboardPage extends React.Component {
 
     return (
       <div>
+        <div id="mixingBoard" className="container">
         {[...Array(this.state.numberOfMediaPlayers)].map((e, i) =>
-             <div className="col-md-6" align="center" key={i}>
-              <MediaPlayer />
-             </div>
+              
+               <div className="col-md-3" align="center" key={i}>
+                <MediaPlayer />
+               </div>
+            
           )}
+        </div>
       </div>
     );
   }

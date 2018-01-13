@@ -9,21 +9,21 @@ class TempoControls extends React.Component {
       <div className="TempoControls">
         <button
           id="slower"
-          className="fa fa-fw fa-slower"
+          className="btn slower"
           onClick={this.props.onClick}>
           -
         </button>
         <button
-          id="faster"
-          className="fa fa-fw fa-faster"
-          onClick={this.props.onClick}>
-          +
-        </button>
-        <button
           id="normalTempo"
-          className="fa fa-fw fa-normal"
+          className="btn normal"
           onClick={this.props.onClick}>
           Reset Tempo
+        </button>
+        <button
+          id="faster"
+          className="btn faster"
+          onClick={this.props.onClick}>
+          +
         </button>
       </div>
     );

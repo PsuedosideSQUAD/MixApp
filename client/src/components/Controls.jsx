@@ -13,16 +13,18 @@ class Controls extends React.Component {
           onClick={this.props.onClick}
         />
         {!this.props.playing &&
-          <i
+          <img
             id="play"
+            src="images/playicon.png"
             onClick={this.props.onClick}
-            className="fa fa-fw fa-play"
+            className="play"
           />}
         {this.props.playing &&
-          <i
+          <img
             id="pause"
+            src="images/pauseicon.png"
             onClick={this.props.onClick}
-            className="fa fa-fw fa-pause"
+            className="pause"
           />}
         <i
           id="next"

@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 const SignUpForm = ({onSubmit,onChange,errors,user}) => (
   <BrowserRouter>
-  <Card className="container">
+  <Card className="container" id="loginContainer">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading">Sign Up</h2>
 
@@ -47,7 +47,7 @@ const SignUpForm = ({onSubmit,onChange,errors,user}) => (
       </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Create New Account" primary />
+        <RaisedButton id="loginButton" type="submit" label="Create New Account" primary />
       </div>
 
       <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
