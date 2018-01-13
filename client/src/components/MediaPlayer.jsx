@@ -14,7 +14,6 @@ import RockTracks from "../TrackInfo/rockTracks.json"
 
 const options = BeatTracks.tracks.map(getTrackOption);
 const tracks = BeatTracks.tracks;
-console.log(options);
 
 function getTrackOption(track, index) {
     return { value: track.id, label: track.title + " by " + track.artist };
@@ -31,7 +30,7 @@ class MediaPlayer extends React.Component {
       playing: false,
       options: options,
       typeOptions: ["Song", "Beat"].map(getSelectObject),
-      selected: options[0],
+      selected: null,
       currentTrackIndex: tracks[0].id,
       typeSelected: null,
       genreSelected: null,
@@ -49,8 +48,6 @@ class MediaPlayer extends React.Component {
   }
 
   handleGenreSelected(option) {
-            console.log(option)
-
     this.setState({
       genreSelected: option.value,
       options: option.value === "Top40" ?
@@ -157,12 +154,14 @@ class MediaPlayer extends React.Component {
         this.audioElement.playbackRate = 1;
         break;
       case "down":
-        this.audioElement.volume === 0 ?
-        this.audioElement.volume = .10
+        this.audioElement.volume < .10 ?
+        this.audioElement.volume = 0
         : this.audioElement.volume -= .10;
         break;
       case "up":
-        this.audioElement.playbackRate += .10;
+        this.audioElement.volume > .90 ?
+        this.audioElement.volume = 1
+        : this.audioElement.volume += .10;
         break;
       default:
         break;
@@ -172,14 +171,13 @@ class MediaPlayer extends React.Component {
   render() {
 
     const options = this.state.options
-    const defaultOption = this.state.selected
     const showBeatsDropdown = this.state.typeSelected === "Beat"
-    const showGenreDropdown = this.state.typeSelected === "Song"
     const showSongDropdown = this.state.genreSelected !== null
     const showSelectTypeDropdown = this.state.typeSelected === null
     const source = "/songs/" + this.state.genreSelected + "/" +this.state.currentTrackIndex + ".mp3"
     const defaultSource = "/songs/Beats/" + this.state.currentTrackIndex + ".mp3"
-
+    const songDropdownPlaceholder = this.state.selected !== null && this.state.selected.label ? this.state.selected.label : "Select A " + this.state.genreSelected + " Song"
+    const beatsDropdownPlaceholder = this.state.selected !== null && this.state.selected.label && this.state.genreSelected === null ? this.state.selected.label : "Select A Beat"
     return (
       <div>
             <div id="playerOne" align="center">
@@ -187,16 +185,15 @@ class MediaPlayer extends React.Component {
                 <div className="Artwork">
                   <Controls onClick={this.handleClick} playing={this.state.playing} />
                   <audio ref={(audio)=>{this.audioElement = audio}} src={this.state.genreSelected ? source : defaultSource}/>
-
                 </div>
                 <VolumeControls onClick={this.handleClick}/>
                 <TempoControls onClick={this.handleClick}/>
                 {showSelectTypeDropdown ?
                     <Dropdown className="SelectTypeDropdown" options = {this.state.typeOptions} onChange={this.handleTypeSelected} placeholder="Select A Song Or A Beat"/> :
                     showBeatsDropdown ?
-                    <Dropdown className="BeatsDropdown" options={options} onChange={this._onSelect} placeholder="Select A Beat" /> :
+                    <Dropdown className="BeatsDropdown" options={options} onChange={this._onSelect} placeholder={beatsDropdownPlaceholder} /> :
                     showSongDropdown ?
-                    <Dropdown className="SongDropdown" options={options} onChange={this._onSelect} placeholder={"Select A " + this.state.genreSelected + " Song"} /> :
+                    <Dropdown className="SongDropdown" options={options} onChange={this._onSelect} placeholder={songDropdownPlaceholder} /> :
                     <Dropdown className="GenreDropdown" options = {this.state.genreOptions} onChange={this.handleGenreSelected} placeholder="Select A Genre"/>
                 }
               </div>

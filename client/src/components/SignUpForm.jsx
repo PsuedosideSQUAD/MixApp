@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { BrowserRouter } from 'react-router-dom';
-
 
 const SignUpForm = ({onSubmit,onChange,errors,user}) => (
-  <BrowserRouter>
   <Card className="container" id="loginContainer">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading">Sign Up</h2>
@@ -53,7 +50,6 @@ const SignUpForm = ({onSubmit,onChange,errors,user}) => (
       <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
     </form>
   </Card>
-  </BrowserRouter>
 );
 
 SignUpForm.propTypes = {

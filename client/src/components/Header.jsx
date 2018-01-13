@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth';
-import { BrowserRouter } from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -25,7 +24,6 @@ class Header extends React.Component {
 
   render() {
     return (
-    <BrowserRouter>    
     <div className="top-bar">
     <div id="header">
         <img src={'mixitlog.png'} alt="logo" className="img-responsive"/> 
@@ -44,16 +42,15 @@ class Header extends React.Component {
 
         {Auth.isUserAuthenticated() === false ? (
         <div className="top-bar-right">
-                 <Link to="/login">{this.state.loginText}</Link> 
+                <Link to="/login">{this.state.loginText}</Link> 
                 <Link to="/signup">{this.state.singupText}</Link>   
         </div>
         ) : (
         <div className="top-bar-right">
-                 <Link to="/login" onClick={this.onLogOutClicked}><i className="fa fa-user">&nbsp;&nbsp;<span id="logoutText">Log out</span></i></Link> 
+                <Link to="/login" onClick={this.onLogOutClicked}><i className="fa fa-user">&nbsp;&nbsp;<span id="logoutText">Log out</span></i></Link> 
         </div>
         )}
     </div>
-    </BrowserRouter>
     );
   }
 }
