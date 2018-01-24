@@ -1,1 +1,3 @@
 # MixApp
+
+MixApp is a music mixing application that is built using the MERN stack which uses a Mongo Database, Express for routing, and React.js and Node.js for the front end of the application.  The purpose of this app is for users to login using Passport npm package which stores user data in the Mongo DB.  Once logged in users can choose from a list of songs and beats to play on one or multiple music players depending on their preference.  Once songs and beats are chosen in each media player the user is able to slow down or speed up the tempo to their liking and pause or play the audio in each media player.  This gives the user the ability to create any kind of song or beat mix they can come up with.
